@@ -2,6 +2,7 @@ var RESUME_LOCATION =
   "https://gist.githubusercontent.com/" +
   GITHUB_USERNAME +
   "/b230f935958cac9e10841a10cf298910/raw";
+
 var titleOnBlur = "Portfolio";
 var titleOnActive = "Portfolio";
 

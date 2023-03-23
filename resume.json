@@ -1,0 +1,154 @@
+{
+  "displayOrder": [
+    "shortBio",
+    "projects",
+    "work",
+    "education",
+    "awards",
+    "volunteer",
+    "social"
+  ],
+  "hideDesignedBy": false,
+  "personal": {
+    "name": "John Doe",
+    "title": "Software Developer",
+    "email": "johndoe@email.com",
+    "phone": "123-456-7890",
+    "websites": [
+      {
+        "network": "linkedin",
+        "label": "johndoe",
+        "url": "https://www.linkedin.com/in/johndoe"
+      },
+      {
+        "network": "github",
+        "label": "johndoe",
+        "url": "https://github.com/johndoe"
+      }
+    ],
+    "shortBio": "Hello! I am John Doe. I make stuff. Here's some of it.",
+    "location": "Delaware",
+    "profiles": [
+      {
+        "network": "Twitter",
+        "url": "http://twitter.com/johndoe"
+      },
+      {
+        "network": "github",
+        "url": "http://github.com/johndoe"
+      },
+      {
+        "network": "linkedin",
+        "url": "https://www.linkedin.com/in/johndoe"
+      }
+    ]
+  },
+  "work": [
+    {
+      "employer": "ABC Company",
+      "location": "Newark, DE",
+      "title": "Software Engineer",
+      "website": "http://google.com",
+      "dates": "July 2014 - Present",
+      "highlights": []
+    },
+    {
+      "employer": "DEF Company",
+      "location": "Newark, DE",
+      "title": "Software Developer",
+      "website": "",
+      "dates": "January 2012 - June 2014",
+      "highlights": [
+        "Implemented new APIs",
+        "Integrated and tested existing C++ libraries with the Google Testing Framework",
+        "Improved functionality in the backend as well as the frontend of the system",
+        "Technologies used: C++, SQL, PHP, ExtJS, Unix"
+      ]
+    },
+    {
+      "employer": "University of Delaware",
+      "location": "Newark, DE",
+      "title": "Research Assistant",
+      "website": "http://google.com",
+      "dates": "September 2010 - December 2011",
+      "highlights": [
+        "Worked on Model and Simulation of DRAM-PCM Dual Architecture with Dr. Chengmo Yang",
+        "Developed simulators for various parts of the architecture",
+        "Integrated different algorithms",
+        "Tested the algorithms and analyzed the results",
+        "Presented research findings at research seminar"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Volunteer Org #1",
+      "location": "Newark, DE",
+      "title": "Volunteer",
+      "website": "",
+      "dates": "December 2015",
+      "highlights": ["highlight", "highlight"]
+    },
+    {
+      "organization": "Volunteer Org #2",
+      "location": "Newark, DE",
+      "title": "Volunteer",
+      "website": "https://www.udel.edu/",
+      "dates": "November 2015",
+      "highlights": []
+    },
+    {
+      "organization": "Volunteer Org #3",
+      "location": "Newark, DE",
+      "title": "Volunteer",
+      "website": "https://www.udel.edu/",
+      "dates": "November 2015",
+      "highlights": ["highlight", "highlight"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Delaware",
+      "major": "Computer Engineering",
+      "degree": "Master of Science",
+      "graduationDate": "Fall 2020"
+    }
+  ],
+  "projectSections": [
+    {
+      "title": "Backend",
+      "projects": [
+        {
+          "title": "Project with long paragraph description",
+          "link": "https://github.com/johndoe/rep.git",
+          "thumbnail": "https://raw.githubusercontent.com/johndoe/portfolio-generator/master/screenshot.PNG",
+          "description": "This was a project to develop a backend API for a weather application. It involved creating endpoints for the different weather data to be returned to the application frontend, using technologies like Node.js and Express. I also implemented various features like caching and authentication to improve performance and security. This was a challenging project that allowed me to gain a lot of experience with backend development."
+        },
+        {
+          "title": "Project with no thumbnail",
+          "link": "https://github.com/johndoe",
+          "description": "This project is about doing something awesome! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo, neque non vestibulum consequat, elit elit feugiat elit, vel rhoncus ante purus at sapien. Ut bibendum urna vitae erat pharetra, in porttitor dolor ultrices. Sed quis massa a arcu bibendum suscipit vitae at odio."
+        },
+        {
+          "title": "Project with no link",
+          "thumbnail": "https://raw.githubusercontent.com/johndoe/portfolio-generator/master/screenshot.PNG",
+          "description": "This was another interesting project I worked on. It involved creating a backend for a messaging application that allowed users to send messages to each other in real-time. The backend was built using technologies like Node.js, Express, and Socket.io, and it required a lot of coordination between the frontend and backend teams to ensure everything worked seamlessly. It was a great experience that taught me a lot about teamwork and communication."
+        }
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "Award Name",
+      "date": "November 2015",
+      "awarder": "Awarding Organization",
+      "summary": "Description of the award and what it was for"
+    },
+    {
+      "title": "Another Award",
+      "date": "December 2014",
+      "awarder": "Awarding Organization",
+      "summary": "Description of the award and what it was for"
+    }
+  ]
+}

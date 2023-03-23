@@ -8,13 +8,13 @@ JS framework to dynamically generate a portfolio site from a JSON resume
   - [Table of Contents](#table-of-contents)
 - [Features:](#features)
 - [Sections](#sections)
-  - [Display order:](#display-order)
-  - [Personal:](#personal)
-  - [Projects:](#projects)
-  - [Work/Volunteer](#workvolunteer)
-  - [Education/Awards](#educationawards)
-  - [Contributions](#contributions)
-    - [Host your portfolio free using github pages :](#host-your-portfolio-free-using-github-pages-)
+    - [Display order:](#display-order)
+    - [Personal:](#personal)
+    - [Projects:](#projects)
+    - [Work/Volunteer](#workvolunteer)
+    - [Education/Awards](#educationawards)
+    - [Contributions](#contributions)
+      - [Host your portfolio free using github pages :](#host-your-portfolio-free-using-github-pages-)
 
 # Features:
 
@@ -155,4 +155,4 @@ I love it when my work helps someone. So if you're using this project or it insp
 
 I host my portfolio using github pages. To use the framework to make your site, you just need to change resume.json and update the `RESUME_LOCATION` in `constants.js` and you're good to go.
 
-- Base code forked from https://github.com/navdeepsekhon/portfolio-generator
+_Base code forked from https://github.com/navdeepsekhon/portfolio-generator_

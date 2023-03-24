@@ -181,3 +181,9 @@ ul {
 .icon-size{
     font-size: 14px !important;
 }
+
+body::-webkit-scrollbar {
+    display: none!important;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

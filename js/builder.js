@@ -52,6 +52,13 @@ $.getJSON(RESUME_LOCATION, function (data) {
   setData(data);
 });
 
+function addSettings(data) {
+  console.log(HTMLDownloadResume.replace("%eventClick%", "downloadResume()"));
+  if (data.enableDownload) {
+    document.getElementById("right-toolbar").innerHTML +=
+      HTMLDownloadResume.replace("%eventClick%", "downloadResume()");
+  }
+}
 function setData(data) {
   DOMMain = document.getElementById("main");
   document.title = data.personal.name + "," + data.personal.title;
@@ -59,7 +66,7 @@ function setData(data) {
   document.getElementById("name").innerHTML = data.personal.name;
   document.getElementById("title").innerHTML = data.personal.title;
   addContacts(data.personal);
-
+  addSettings(data.settings);
   var sectionOrder = defaultOrder;
   if (data.displayOrder != undefined && data.displayOrder.length != 0) {
     sectionOrder = data.displayOrder;

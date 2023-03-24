@@ -11,6 +11,9 @@ var HTMLEmail =
 var HTMLPhone =
   '<li><span class="glyphicon glyphicon-earphone contact-icon icon-size"></span><a href="tel:%data%"><span class="contact-text">%data%</span></a></li>';
 
+var HTMLDownloadResume =
+  '<i class="fa fa-download" aria-hidden="true" style="font-size: 18px" id="download-resume" onclick="%eventClick%"></i>';
+
 var HTMLPersonalWebsiteBlock = '<div class="row">%data%</div>';
 var HTMLPersonalWebsite =
   '<li ><a href="%url%" class ="link-text" target="_blank"> <span class="zocial-%network% icon-size"></span> %label%</a></li>';

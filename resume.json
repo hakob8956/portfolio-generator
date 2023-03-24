@@ -150,5 +150,8 @@
       "awarder": "Awarding Organization",
       "summary": "Description of the award and what it was for"
     }
-  ]
+  ],
+  "settings": {
+    "enableDownload": true
+  }
 }

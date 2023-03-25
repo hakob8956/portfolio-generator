@@ -1,0 +1,24 @@
+---
+const { data } = Astro.props;
+---
+<div class="row"><div class="col-md-12"><h2 class="text-muted">Education</h2></div></div>
+<div id="education">
+  {data.map((item) => (
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3>{item.institution}</h3>
+    </div>
+  </div><div class="row">
+    <div class="col-md-6 location-text"> {item.degree}, {item.major}</div><div
+      class="col-md-6 date-text text-right"
+    >
+      {item.graduationDate}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 gpa-text text-left">{item.gpa}</div>
+  </div>
+  ))}
+
+</div>

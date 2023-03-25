@@ -1,0 +1,37 @@
+---
+const { data, settings } = Astro.props;
+---
+
+<nav class="fixed-nav-bar text-center">
+  <div style="display: inline-flex; width: 100%; align-items: center">
+    <div style="margin: auto">
+      <h2 id="name" class="text-thin text-name">{data.name}</h2>
+      <div id="title" class="">{data.title}</div>
+    </div>
+    {
+      settings?.enableDownload && (
+        <div style="margin-right: 10px" id="right-toolbar">
+          <i
+            class="fa fa-download"
+            aria-hidden="true"
+            style="font-size: 18px"
+            id="download-resume"
+            onclick="downloadResume()"
+          />
+        </div>
+      )
+    }
+  </div>
+</nav>
+
+<script>
+  const downloadButton = document.getElementById("download-resume");
+
+  downloadButton.addEventListener("click", () => {
+    $("#right-toolbar").hide();
+    $("[id^=highlightDiv]").collapse("show");
+    window.print();
+    $("#right-toolbar").show();
+    $("[id^=highlightDiv]").collapse("hide");
+  });
+</script>

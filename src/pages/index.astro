@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Education from "../components/Education.astro";
+import Personal from "../components/Personal.astro";
+import Work from "../components/Work.astro";
+import Nav from "../components/Nav.astro";
+import ShortInfo from "../components/ShortInfo.astro";
+import Project from "../components/Project.astro";
+import { myUtils } from "../functions/utils";
+
+const data = await myUtils.getData();
+---
+
+<Layout>
+  <Nav data={data.personal} settings={data.settings} />
+  <div class="container" id="main">
+    {
+      data.displayOrder.map((item) => {
+        if (item === "shortBio" && data.personal) {
+          return (
+            <>
+              <Personal data={data.personal} />
+              <ShortInfo data={data.personal} />
+            </>
+          );
+        }
+        if (item === "work" && data.work) {
+          return <Work data={data.work} />;
+        }
+        if (item === "education" && data.education) {
+          return <Education data={data.education} />;
+        }
+        if (item === "projects" && data.projectSections) {
+          return <Project data={data.projectSections} />;
+        }
+        return null;
+      })
+    }
+  </div>
+</Layout>

@@ -1,52 +1,63 @@
-# portfolio-generator
+# Portfolio Generator
 
-JS framework to dynamically generate a portfolio site from a JSON resume
+The _Portfolio Generator_ is a tool that allows you to create a website using JSON data. This documentation explains how to use the JSON data format to generate a website.
 
-## Table of Contents
+### Personal Information
 
-- [portfolio-generator](#portfolio-generator)
-  - [Table of Contents](#table-of-contents)
-- [Features:](#features)
-- [Sections](#sections)
-    - [Display order:](#display-order)
-    - [Personal:](#personal)
-    - [Projects:](#projects)
-    - [Work/Volunteer](#workvolunteer)
-    - [Education/Awards](#educationawards)
-    - [Contributions](#contributions)
-      - [Host your portfolio free using github pages :](#host-your-portfolio-free-using-github-pages-)
+The `personal` property contains personal information about the individual. It includes the following properties:
 
-# Features:
+- `name`: The individual's name.(required)
+- `title`: The individual's job title.(required)
+- `email`: The individual's email address.(optional)
+- `phone`: The individual's phone number.(optional)
+- `shortBio`: A short bio of the individual.(optional)
+- `location`: The individual's location.(optional)
+- `profiles`: An array of profiles on various social media platforms.(optional)
 
-- Framework generates a responsive website by reading information from resume.json
-- Adapts to different screen sizes from phones to desktops
-- Ability to choose the order of different sections
-- Ability to create multiple project sections
-- Ability to create sideshows for projects
-- All sections are optional; any section can be skipped/hidden
-- Supports personal bio, social media link, projects, work, education, volunteer work, awards sections
+### Work History
 
-# Sections
+The work property contains an array of work history objects. Each work history object has the following properties:
 
-### Display order:
+- `employer`: The name of the employer(required).
+- `location`: The location of the employer.(optional)
+- `title`: The job title(required).
+- `website`: The website of the employer.(optional)
+- `dates`: The dates of employment.(optional)
+- `highlights`: An array of highlights of the work experience.(optional)
 
-The `displayOrder` array controls the order of sections on the website. Any section not listed in the arrays will not be displayed.
-Example:
+### Education History
 
-```json
-"displayOrder": ["shortBio","projects", "work", "education", "awards", "volunteer", "social"]
+The `education` property contains an array of education history objects. Each education history object has the following properties:
+
+- `institution`: The name of the institution(required).
+- `major`: The major or field of study(required).
+- `degree`: The degree earned.(optional)
+- `graduationDate`: The date of graduation.(optional)
+- `gpa`: The grade point average (optional).
+
+### Project Sections
+
+The `projectSections` property contains an array of project section objects. Each project section object has the following properties:
+
+- `title`: The title of the project section.(optional)
+- `projects`: An array of project objects. Each project - - object has the following properties:(required)
+  - `title`: The title of the project.(required)
+  - `link`: The link to the project (optional).
+  - `thumbnail`: The thumbnail image for the project.(optional)
+  - `description`: A description of the project.(optional)
+  - `gallery`: An array of image URLs for a project gallery (optional).
+
+### Example JSON Data
+
 ```
-
-Note: `social` is the `profiles` in the `personal` section.
-
-### Personal:
-
-All the elements in personal section are optional. All the social media profiles can be listed in the `profiles` array. Icons are from [zocial](https://github.com/smcllns/css-social-buttons).
-
-Example:
-
-```json
-"personal": {
+{
+  "displayOrder": [
+    "shortBio",
+    "projects",
+    "work",
+    "education"
+  ],
+  "personal": {
     "name": "John Doe",
     "title": "Software Developer",
     "email": "johndoe@email.com",
@@ -79,80 +90,97 @@ Example:
         "url": "https://www.linkedin.com/in/johndoe"
       }
     ]
-  }
-```
-
-### Projects:
-
-This is my favourite. You can create different sections of projects and multiple projects in each section. Eg: Frontend/Backend/Mobile etc.
-
-`projectSections` is an array of project section objects. Each section has a `title` and a list of `projects`.
-
-Example:
-
-```json
-"projectSections": [
-       {
-      "title": "FrontEnd",
-      "projects" :[ ... ]
+  },
+  "work": [
+    {
+      "employer": "ABC Company",
+      "location": "Newark, DE",
+      "title": "Software Engineer",
+      "website": "http://google.com",
+      "dates": "July 2014 - Present",
+      "highlights": []
     },
     {
-      "title": "BackEnd",
-      "projects" :[ ... ]
-     }
-   ]
-```
-
-There are different kind of projects depending on what information you provide for each project.
-
-- If you provide an array in `description`, it will rendered as bullet points.
-- If you provide a string `description`, it will be rendered as a center aligned paragraph.
-- If you provide `gallery` array with a bunch of image links, it will render a slideshow of images.
-
-Example:
-
-```json
-  [{
-        "title": "Project with bulleted description",
-        "link": "https://example.com",
-        "thumbnail": "https://example.com/screenshots.PNG",
-        "description": [
-          "Bullet 1",
-          "Bullet 2"
-          ...
-          ]
+      "employer": "DEF Company",
+      "location": "Newark, DE",
+      "title": "Software Developer",
+      "website": "",
+      "dates": "January 2012 - June 2014",
+      "highlights": [
+        "Implemented new APIs",
+        "Integrated and tested existing C++ libraries with the Google Testing Framework",
+        "Improved functionality in the backend as well as the frontend of the system",
+        "Technologies used: C++, SQL, PHP, ExtJS, Unix"
+      ]
+    },
+    {
+      "employer": "University of Delaware",
+      "location": "Newark, DE",
+      "title": "Research Assistant",
+      "website": "http://google.com",
+      "dates": "September 2010 - December 2011",
+      "highlights": [
+        "Worked on Model and Simulation of DRAM-PCM Dual Architecture with Dr. Chengmo Yang",
+        "Developed simulators for various parts of the architecture",
+        "Integrated different algorithms",
+        "Tested the algorithms and analyzed the results",
+        "Presented research findings at research seminar"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Delaware",
+      "major": "Computer Engineering",
+      "degree": "Master of Science",
+      "graduationDate": "Fall 2020"
+    }
+  ],
+  "projectSections": [
+    {
+      "title": "Backend",
+      "projects": [
+        {
+          "title": "Project with long paragraph description",
+          "link": "https://github.com/johndoe/rep.git",
+          "thumbnail": "https://raw.githubusercontent.com/johndoe/portfolio-generator/master/screenshot.PNG",
+          "description": "This was a project to develop a backend API for a weather application. It involved creating endpoints for the different weather data to be returned to the application frontend, using technologies like Node.js and Express. I also implemented various features like caching and authentication to improve performance and security. This was a challenging project that allowed me to gain a lot of experience with backend development."
         },
         {
-          "title": "Project with image gallery",
-          "thumbnail": "https://example.com/screenshots.PNG",
-          "link": "https://example.com",
-          "description": "To create an image gallery in pop up, put the image URLs comma separated in gallery: []",
-          "gallery": [
-            "https://example.com/screenshots1.PNG",
-            "https://example.com/screenshots2.PNG",
-            ...
-           ]
+          "title": "Project with no thumbnail",
+          "link": "https://github.com/johndoe",
+          "description": "This project is about doing something awesome! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo, neque non vestibulum consequat, elit elit feugiat elit, vel rhoncus ante purus at sapien. Ut bibendum urna vitae erat pharetra, in porttitor dolor ultrices. Sed quis massa a arcu bibendum suscipit vitae at odio."
+        },
+        {
+          "title": "Project with no link",
+          "thumbnail": "https://raw.githubusercontent.com/johndoe/portfolio-generator/master/screenshot.PNG",
+          "description": "This was another interesting project I worked on. It involved creating a backend for a messaging application that allowed users to send messages to each other in real-time. The backend was built using technologies like Node.js, Express, and Socket.io, and it required a lot of coordination between the frontend and backend teams to ensure everything worked seamlessly. It was a great experience that taught me a lot about teamwork and communication."
         }
-
+      ]
+    }
+  ],
+  "settings": {
+    "enableDownload": true
+  }
+}
 ```
 
-### Work/Volunteer
+To use this JSON data with a portfolio generator tool, you can save the data in a JSON file and provide the file path as an input to the tool or you can fetch data from a URL.
+you can find it in _functions/utils.js_
 
-- If you provide a `website` the organization name will be a link.
-- If you provide an array of `highlights` it will create a collapsible bullet list
+## 🧞 Commands
 
-### Education/Awards
+All commands are run from the root of the project, from a terminal:
 
-See demo portfolio for examples.
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `npm install`          | Installs dependencies                            |
+| `npm run dev`          | Starts local dev server at `localhost:3000`      |
+| `npm run build`        | Build your production site to `./dist/`          |
+| `npm run preview`      | Preview your build locally, before deploying     |
+| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro --help` | Get help using the Astro CLI                     |
 
-### Contributions
+### Why Astro ?
 
-Please feel free to report any bugs or send in pull request with code changes.
-
-I love it when my work helps someone. So if you're using this project or it inspired you to build something of your own, I'd love to know! My social media is listed on my portfolio :)
-
-#### Host your portfolio free using github pages :
-
-I host my portfolio using github pages. To use the framework to make your site, you just need to change resume.json and update the `RESUME_LOCATION` in `constants.js` and you're good to go.
-
-_Base code forked from https://github.com/navdeepsekhon/portfolio-generator_
+Because Astro is a modern static site builder that offers many features such as a flexible and powerful component system, built-in support for popular frameworks like React and Vue.js, fast and reliable builds with incremental compilation, and a customizable build process.

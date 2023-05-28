@@ -1,0 +1,50 @@
+---
+const { data } = Astro.props;
+---
+
+<div class="row">
+  <div class="col-md-12"><h2 class="text-muted">Work Experience</h2></div>
+</div>
+{
+  data.map((item, index) => (
+    <div id="work">
+      <div class="row">
+        <div class="col-md-12">
+          <a href={item.website} target="_blank">
+            <h3>{item.employer}</h3>
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>{item.title}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 location-text">{item.location}</div>
+        <div class="col-md-6 date-text text-right">{item.dates}</div>
+      </div>
+      {item.highlights && item.highlights.length > 0 && (
+        <div class="row">
+          <div
+            id={`workHighlights${index}`}
+            class="col-md-12 highlights clickable"
+            data-toggle="collapse"
+            data-target={`#highlightDiv-workHighlights${index}`}
+          >
+            <span class="glyphicon glyphicon-triangle-right contact-icon" />
+            <span class="text-bold contact-text">Highlights</span>
+            <ul
+              class="collapse bullet-list"
+              id={`highlightDiv-workHighlights${index}`}
+            >
+              {item.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
+  ))
+}

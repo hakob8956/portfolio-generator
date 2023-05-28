@@ -1,0 +1,43 @@
+---
+const { data } = Astro.props;
+---
+
+<div class="row">
+  <div class="col-md-12">
+    <ul id="contacts" class="list-inline text-center">
+      {
+        data.email && (
+          <li>
+            <span class="glyphicon glyphicon-envelope contact-icon icon-size" />
+            <a href={`mailto: ${data.email}`}>
+              <span class="contact-text">{data.email}</span>
+            </a>
+          </li>
+        )
+      }
+
+      {
+        data.location && (
+          <li>
+            <>
+              <span class="glyphicon glyphicon-home contact-icon icon-size" />
+              <span class="contact-text">{data.location}</span>
+            </>
+          </li>
+        )
+      }
+
+      <div class="row">
+        {
+          data.websites.map((item) => (
+            <li>
+              <a href={item.url} class="link-text" target="_blank">
+                <span class={`zocial-${item.network} icon-size`} /> {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </div>
+    </ul>
+  </div>
+</div>

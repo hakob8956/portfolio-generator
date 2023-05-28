@@ -1,0 +1,63 @@
+---
+import { events } from "../functions/events";
+
+const { data } = Astro.props;
+const projectWithModalClasses =
+  "img-responsive image-center modal-thumbnail-image thumbnail-image tooltip-image clickable";
+const projectSimpleClasses = "img-responsive image-center thumbnail-image";
+const projectWithGalleryClasses =
+  "img-responsive image-center modal-thumbnail-image thumbnail-image tooltip-image clickable";
+---
+
+{
+  data.map((item, index) => (
+    <>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="text-muted">{item.title}</h2>
+        </div>
+      </div>
+      <div id={`projects0${index}`}>
+        <div class="row text-center project-row">
+          {item.projects.map((project, projectIndex) => (
+            <div class="col-md-4">
+              <u>
+                <img
+                  id={`project-${index}-${projectIndex}`}
+                  project-title={project.title}
+                  project-desc={`<ul class="bullet-list text-left">
+                        ${
+                          Array.isArray(project.description)
+                            ? project.description
+                                .map((element) => `<li>${element}</li>`)
+                                .join("")
+                            : project.description
+                        }
+                        </ul>`}
+                  class={`${
+                    project.gallery && project.gallery.length > 0
+                      ? projectWithGalleryClasses
+                      : project.description
+                      ? projectWithModalClasses
+                      : projectSimpleClasses
+                  }`}
+                  title={project.title}
+                  src={project.thumbnail}
+                  data-original-title="Click image for more information"
+                />
+                <h3>{project.title}</h3>
+              </u>
+            </div>
+          ))}
+        </div>
+      </div>
+      <hr />
+    </>
+  ))
+}
+
+<script>
+  import { events } from "../functions/events";
+  events.addListenerForGallery();
+  events.addListenerForModal();
+</script>

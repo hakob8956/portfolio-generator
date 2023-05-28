@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-creater",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "astro": "astro",
+    "preview": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs"
+  },
+  "dependencies": {
+    "@astrojs/deno": "^4.1.0",
+    "astro": "^2.1.7"
+  }
+}
